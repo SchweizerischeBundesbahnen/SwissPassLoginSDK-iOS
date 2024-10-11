@@ -1,89 +1,49 @@
-# Open Source Repo Template
+# SwissPassLogin SDK v4 for iOS
 
-> **Note:** This is a repository template. This README serves both as an example for your new repository, and also contains information on how to use the repository template.
+Copyright (C) Schweizerische Bundesbahnen SBB, 2024
 
-This repository is a template for creating new open-source repositories. It contains all the necessary files and documents to ensure that your open-source project is well-organized and follows best practices.
+## Overview
 
-#### Table Of Contents
+SwissPassLogin SDK is a client SDK for mobile apps communicating with the SwissPass OAuth 2.0 and OpenID Connect provider.
 
-- [Introduction](#Introduction)
-- [Getting Started](#Getting-Started)
-- [Contributing](#Contributing)
-- [Documentation](#Documentation)
-- [Code of Conduct](#code-of-conduct)
-- [Coding Standards](#coding-standards)
-- [License](#License)
+### SwissPass Login
 
-<a id="Introduction"></a>
+SwissPass Login for mobile apps is based on OAuth 2.0, which is the industry-standard protocol for authorization on mobile devices. 
 
-## Introduction
+As such, the SwissPassClient SDK implements the security requirements and other recommendations for mobile applications as described in RFC 8252 "OAuth 2.0 for Native Apps". This includes PKCE according to RFC 7636 "Proof Key for Code Exchange" which is an extension to the Authorization Code flow to prevent several attacks and to be able to securely perform the OAuth exchange from public clients.
 
-When creating an open-source project, it's important to establish a clear structure and set of guidelines to ensure that the project is maintainable and sustainable. This repository provides a basic template that can be used as a starting point for new projects.
+In addition, please note the following:
 
-The template includes the following features:
+* If your app wants to access a protected resource using an access token issued by the SwissPass Login server it must follow the principles described in RFC 6750 "The OAuth 2.0 Authorization Framework: Bearer Token Usage". Particularly, the app must correctly implement the error handling.
+* Access tokens are by default JSON Web Tokens according to RFC 7519 "JSON Web Token (JWT)". As a consequence, they can either be validated by implementing the checks described in RFC 7519 or by using the SwissPass Login token introspection endpoint, which is based on RFC 7662 "OAuth 2.0 Token Introspection".
+* Starting with version 3.0 the SwissPassClient SDK uses OpenID Connect (OIDC) Core 1.0 which is an identity layer on top of the OAuth 2.0 protocol.
+* Starting with version 4.0 the SwissPassClient SDK uses OpenID Connect (OIDC) Discovery 1.0 to retrieve the OpenID Provider configuration from the well-known location, including its OAuth 2.0 endpoint locations.
 
-- A basic file structure for organizing code, documentation, and related files
-- A CONTRIBUTING.md file with guidelines for contributing to the project
-- A CODE_OF_CONDUCT.md file with guidelines for community behavior
-- A LICENSE.md file with information about the open-source license that applies to the project
+## How to use the SDK
 
-<a id="Getting-Started"></a>
+The SwissPassClient SDK is written in Swift 5 and compiled using the option *Build Libraries for Distribution* with deployment target iOS 12. It is distributed as a binary XCFramework. 
 
-## Getting-Started
+In addition:
 
-Instructions for getting started with the repository, for e.g.:
+* Make sure to integrate the *Swift Standard Libraries* in your build. I.e., the option *Embedded Content Contains Swift Code* (EMBEDDED_CONTENT_CONTAINS_SWIFT) must be set to YES.
+* In order to use FaceID in `requestAuthentication()` be sure to specify the key `NSFaceIDUsageDescription` in your info.plist - for more details see https://developer.apple.com/documentation/localauthentication/lacontext
 
-- Installation instructions
-- Usage instructions
+### Swift Package Manager
 
-> To use this template please follow the steps as below:
->
-> - If creating via Self Service Portal (WIP)
-> - If Creating via GitHub Interface
->   - Click the "Use this template" button above, select "Create a new repository"
->   - Give your repository a name, and optionally a description. The owner will always be "SchweizerischeBundesbahnen".
->   - Set the visibility of your repository to "Public".
->   - Do not select "Include all branches".
->   - Click the "Create repository from template" button and you're done!
+The SDK can be integrated into your build process as an XCFramework using the Swift Package Manager. To do so, just add the package by using the following url
 
-<a id="Documentation"></a>
-
-## Documentation
-
-Links to all relevant documentation files, including:
-
-- [CODING_STANDARDS.md](CODING_STANDARDS.md)
-- [CONTRIBUTING.md](CONTRIBUTING.md)
-- [LICENSE.md](LICENSE.md)
-
-<a id="License"></a>
+```
+https://github.com/SchweizerischeBundesbahnen/SwissPassLoginSDK-iOS.git
+```
 
 ## License
 
-> Choose a license that meets the organization's legal requirements and supports the sharing and modification of the code.
-> Please follow the internal Open Source guidelines while chosing the License.
-> This repository includes two [suggested license texts](./suggested_licenses) (Apache 2.0 and EPL 2.0). Rename the license you prefer to [LICENSE.md](LICENSE.md) and remove the other one.
+This project is licensed under [LICENSE.md].
 
-This project is licensed under [INSERT LICENSE].
+## Additional information
 
-<a id="Contributing"></a>
+Further documentation is available on the NOVA UserGroup website.
 
-## Contributing
+### Contact
 
-Open-source projects thrive on collaboration and contributions from the community. To encourage others to contribute to your project, you should provide clear guidelines on how to get involved.
-
-This repository includes a [CONTRIBUTING.md](CONTRIBUTING.md) file that outlines how to contribute to the project, including how to submit bug reports, feature requests, and pull requests.
-
-<a id="coding-standards"></a>
-
-## Coding Standards
-
-To maintain a high level of code quality and consistency across your project, you should establish coding standards that all contributors should follow.
-
-This repository includes a [CODING_STANDARDS.md](CODING_STANDARDS.md) file that outlines the coding standards that you should follow when contributing to the project.
-
-<a id="code-of-conduct"></a>
-
-## Code of Conduct
-
-To ensure that your project is a welcoming and inclusive environment for all contributors, you should establish a good [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+General inquiries, suggestions, bug reports and feedback can be made via the NOVA UserGroup website or the SwissPass Alliance.
