@@ -4,7 +4,7 @@ Copyright (C) Schweizerische Bundesbahnen SBB, 2024
 
 ## Overview
 
-SwissPassLogin SDK is a client SDK for mobile apps communicating with the SwissPass OAuth 2.0 and OpenID Connect provider.
+SwissPassLogin SDK is a client library for mobile apps that facilitates the communication with the SwissPass OAuth 2.0 and OpenID Connect provider. 
 
 ### SwissPass Login
 
