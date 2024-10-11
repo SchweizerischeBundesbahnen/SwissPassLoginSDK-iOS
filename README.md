@@ -38,7 +38,7 @@ https://github.com/SchweizerischeBundesbahnen/SwissPassLoginSDK-iOS.git
 
 ## License
 
-This project is licensed under [LICENSE.md].
+This project is licensed under [LICENSE.md](./LICENSE.md).
 
 ## Additional information
 
