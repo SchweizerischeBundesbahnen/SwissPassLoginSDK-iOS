@@ -1,4 +1,4 @@
-# SwissPassLogin SDK v4 for iOS
+# SwissPassLogin SDK v4 for iOS and iPadOS
 
 Copyright (C) Schweizerische Bundesbahnen SBB, 2024
 
@@ -16,12 +16,12 @@ In addition, please note the following:
 
 * If your app wants to access a protected resource using an access token issued by the SwissPass Login server it must follow the principles described in RFC 6750 "The OAuth 2.0 Authorization Framework: Bearer Token Usage". Particularly, the app must correctly implement the error handling.
 * Access tokens are by default JSON Web Tokens according to RFC 7519 "JSON Web Token (JWT)". As a consequence, they can either be validated by implementing the checks described in RFC 7519 or by using the SwissPass Login token introspection endpoint, which is based on RFC 7662 "OAuth 2.0 Token Introspection".
-* Starting with version 3.0 the SwissPassClient SDK uses OpenID Connect (OIDC) Core 1.0 which is an identity layer on top of the OAuth 2.0 protocol.
-* Starting with version 4.0 the SwissPassClient SDK uses OpenID Connect (OIDC) Discovery 1.0 to retrieve the OpenID Provider configuration from the well-known location, including its OAuth 2.0 endpoint locations.
+* The SDK uses OpenID Connect (OIDC) Core 1.0 which is an identity layer on top of the OAuth 2.0 protocol.
+* The SDK uses OpenID Connect (OIDC) Discovery 1.0 to retrieve the OpenID Provider configuration from the well-known location, including its OAuth 2.0 endpoint locations.
 
 ## How to use the SDK
 
-The SwissPassClient SDK is written in Swift 5 and compiled using the option *Build Libraries for Distribution* with deployment target iOS 12. It is distributed as a binary XCFramework. 
+The SwissPassLogin SDK is written in Swift 5 and compiled using the option *Build Libraries for Distribution* with deployment target iOS 12. It is distributed as a binary XCFramework. 
 
 In addition:
 
