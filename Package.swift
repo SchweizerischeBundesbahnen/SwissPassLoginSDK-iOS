@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "SwissPassLogin",
         platforms: [
-            .iOS(.v15),
+            .iOS(.v12),
         ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -19,7 +19,7 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(name: "SwissPassLogin",
-                      url: "https://github.com/SchweizerischeBundesbahnen/SwissPassLoginSDK-iOS/releases/download/4.3.2/SwissPassLogin_framework-4.3.2_r250108.1357.17.zip",
-                      checksum: "e062300c1ec3a210f9faff68d693fe5274a546c041550e4d7f29fb913dabb743")
+                      url: "https://github.com/SchweizerischeBundesbahnen/SwissPassLoginSDK-iOS/releases/download/4.3.2/SwissPassLogin_framework-4.3.2_r250108.1654.18.zip",
+                      checksum: "836085b14851bc0e085201879c9bcf2f0f6297d64979efa9e53b70bdcf6ceb02")
     ]
 )
